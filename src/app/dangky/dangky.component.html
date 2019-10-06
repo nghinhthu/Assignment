@@ -1,0 +1,140 @@
+<div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <!-- Header Content -->
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo_container mr-auto">
+                                <a [routerLink]="['/trangchu']">
+                                    <div class="logo_text" style="width: 200px; color: cadetblue">MuaTC-Exam</div>
+                                </a>
+                            </div>
+                            <nav class="main_nav_contaner">
+                                <ul class="main_nav">
+                                    <li class="active"><a [routerLink]="['/trangchu']">Trang chủ</a></li>
+                                    <li><a [routerLink]="['/gioithieu']">Giới Thiệu</a></li>
+                                    <li><a [routerLink]="['/monhoc']">Môn Học</a></li>
+                                    <li><a [routerLink]="['/lienhe']">Liên Hệ</a></li>
+                                    <li><a [routerLink]="['/gopy']">Góp Ý</a></li>
+                                    <li><a [routerLink]="['/hoidap']">Hỏi Đáp</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header_content_right ml-auto text-right">
+
+                                <!-- Hamburger -->
+
+                                <!-- <div class="user">
+                                            <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                        </div> -->
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item dropdown" style="background-color: rgb(240, 240, 240); border-radius: 50%; width: 50px;">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-user" aria-hidden="true" style="color: darkgrey; font-size: 25px;"></i>
+                                        </a>
+                                        <div class="dropdown-menu" style="color: darkgrey; background-color: lightblue; font-size: 15px;">
+                                            <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng Nhập</a>
+                                            <a class="dropdown-item" [routerLink]="['/dangky']" href="#">Đăng Ký</a>
+                                            <a class="dropdown-item" [routerLink]="['/doimatkhau']" href="#">Đổi Mật Khẩu</a>
+                                            <a class="dropdown-item" [routerLink]="['/suataikhoan']" href="#">Sửa Đổi Thông Tin Tài khoản</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Đăng Xuất</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="hamburger menu_mm">
+                                    <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Menu -->
+
+    <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+        <div class="menu_close_container">
+            <div class="menu_close">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="search">
+            <form action="#" class="header_search_form menu_mm">
+                <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+                <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+                            <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+                        </button>
+            </form>
+        </div>
+        <nav class="menu_nav">
+            <ul class="menu_mm">
+                <li class="active"><a [routerLink]="['/trangchu']">Trang chủ</a></li>
+                <li><a [routerLink]="['/gioithieu']">Giới Thiệu</a></li>
+                <li><a [routerLink]="['/monhoc']">Môn Học</a></li>
+                <li><a [routerLink]="['/lienhe']">Liên Hệ</a></li>
+                <li><a [routerLink]="['/gopy']">Góp Ý</a></li>
+                <li><a [routerLink]="['/hoidap']">Hỏi Đáp</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Sign up -->
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="assets/images/signup-bg.jpg" alt=""> -->
+            <div class="container-dangnhap">
+                <div class="signup-content">
+                    <form method="POST" id="signup-form" class="signup-form">
+                        <h2 class="form-title">TẠO TÀI KHOẢN</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Your Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Your Email" />
+                        </div>
+                        <div class="form-group">
+                            <input type="date" class="form-input" name="name" id="name" placeholder="D.O.B" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="User Name" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="password" id="password" placeholder="Password" />
+                            <span toggle="password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" />
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Tạo Tài Khoản" />
+                        </div>
+                    </form>
+                    <hr>
+                    <p style="text-align: center">Hoặc</p>
+                    <p class="loginhere" style="margin-top: 5px">
+                        Đã có tài khoản ? <a [routerLink]="['/dangnhap']" class="loginhere-link">Đăng nhập</a>
+                    </p>
+                    <hr>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</div>

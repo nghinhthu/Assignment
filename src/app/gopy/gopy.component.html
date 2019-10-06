@@ -1,0 +1,250 @@
+<div class="super_container">
+
+    <!-- Header -->
+
+    <header class="header">
+
+        <!-- Header Content -->
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo_container mr-auto">
+                                <a [routerLink]="['/trangchu']">
+                                    <div class="logo_text" style="width: 200px; color: cadetblue">MuaTC-Exam</div>
+                                </a>
+                            </div>
+                            <nav class="main_nav_contaner">
+                                <ul class="main_nav">
+                                    <li class="active"><a [routerLink]="['/trangchu']">Trang chủ</a></li>
+                                    <li><a [routerLink]="['/gioithieu']">Giới Thiệu</a></li>
+                                    <li><a [routerLink]="['/monhoc']">Môn Học</a></li>
+                                    <li><a [routerLink]="['/lienhe']">Liên Hệ</a></li>
+                                    <li><a [routerLink]="['/gopy']">Góp Ý</a></li>
+                                    <li><a [routerLink]="['/hoidap']">Hỏi Đáp</a></li>
+                                </ul>
+                            </nav>
+                            <div class="header_content_right ml-auto text-right">
+                                <!-- <div class="header_search">
+                                        <div class="search_form_container">
+                                            <form action="#" id="search_form" class="search_form trans_400">
+                                                <input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
+                                                <div class="search_button">
+                                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div> -->
+
+                                <!-- Hamburger -->
+
+                                <!-- <div class="user"> -->
+                                <!-- <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a> -->
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item dropdown" style="background-color: rgb(240, 240, 240); border-radius: 50%; width: 50px;">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                                            <i class="fa fa-user" aria-hidden="true" style="color: darkgrey; font-size: 25px;"></i>
+                                        </a>
+                                        <div class="dropdown-menu" style="color: darkgrey; background-color: lightblue; font-size: 15px;">
+                                            <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng Nhập</a>
+                                            <a class="dropdown-item" [routerLink]="['/dangky']" href="#">Đăng Ký</a>
+                                            <a class="dropdown-item" [routerLink]="['/doimatkhau']" href="#">Đổi Mật Khẩu</a>
+                                            <a class="dropdown-item" [routerLink]="['/suataikhoan']" href="#">Sửa Đổi Thông Tin Tài khoản</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Đăng Xuất</a>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="hamburger menu_mm">
+                                <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+
+
+                            </div>
+                            <!-- </div> -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- Menu -->
+
+    <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+        <div class="menu_close_container">
+            <div class="menu_close">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="search">
+            <form action="#" class="header_search_form menu_mm">
+                <input type="search" class="search_input menu_mm" placeholder="Search" required="required">
+                <button class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+                            <i class="fa fa-search menu_mm" aria-hidden="true"></i>
+                        </button>
+            </form>
+        </div>
+        <nav class="menu_nav">
+            <ul class="menu_mm">
+                <li class="active"><a [routerLink]="['/trangchu']">Trang chủ</a></li>
+                <li><a [routerLink]="['/gioithieu']">Giới Thiệu</a></li>
+                <li><a [routerLink]="['/monhoc']">Môn Học</a></li>
+                <li><a [routerLink]="['/lienhe']">Liên Hệ</a></li>
+                <li><a [routerLink]="['/gopy']">Góp Ý</a></li>
+                <li><a [routerLink]="['/hoidap']">Hỏi Đáp</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <!-- Contact Map -->
+
+    <!-- <div class="contact_map">
+    
+            Google Map
+    
+            <div class="map">
+                <div id="google_map" class="google_map">
+                    <div class="map_container">
+                        <div id="map" style="padding-left: 50px; padding-top: 0px">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1385.744717222922!2d106.63422690310715!3d10.774658879124448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ea168a65c0b%3A0x2a4a7dc43e177de1!2zMTIgVHLhu4tuaCDEkMOsbmggVGjhuqNvLCBIb8OgIFRoYW5oLCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1570202266717!5m2!1svi!2s"
+                                width="900" height="400" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div> -->
+    <img src="assets/images/contact2.jpg" style="padding-left: 100px; height: 400px; width: 600px">
+
+    <!-- Contact -->
+
+    <div class="contact">
+
+        <div class="container">
+            <div class="row row-lg-eq-height">
+
+                <!-- Details -->
+                <div class="col-lg-6">
+                    <div class="contact_details">
+                        <div class="contact_details_title">Contact Details</div>
+                        <ul>
+                            <li>
+                                <svg fill="rgba(0,0,0,0.4)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                        </svg>
+                                <span>7:00 AM - 5:00 PM</span>
+                            </li>
+                            <li>
+                                <svg fill="rgba(0,0,0,0.4)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                        </svg>
+                                <span>(028) 39734983</span>
+                            </li>
+                            <li>
+                                <svg fill="rgba(0,0,0,0.4)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                        </svg>
+                                <span>tuyensinh@itc.edu.vn</span>
+                            </li>
+                            <li>
+                                <svg fill="rgba(0,0,0,0.4)" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            <path d="M0 0h24v24H0z" fill="none"/>
+                                        </svg>
+                                <span>12 Trịnh Đình Thảo, Hòa Thạnh, Tân Phú, TP.HCM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <div class="col-lg-6">
+                    <div class="contact_form_container">
+                        <div class="form_title">Get in Touch</div>
+                        <form action="#" id="contact_form" class="contact_form">
+                            <div class="row contact_row">
+                                <div class="col-lg-6 contact_col">
+                                    <input type="text" class="form_input" placeholder="Name" required="required">
+                                </div>
+                                <div class="col-lg-6 contact_col">
+                                    <input type="email" class="form_input" placeholder="Email" required="required">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea class="form_input form_text" placeholder="Message" required="required"></textarea>
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="form_button trans_200">send message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="footer_body">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Newsletter -->
+                    <div class="col-lg-3 footer_col">
+                        <div class="newsletter_container d-flex flex-column align-items-start justify-content-end">
+                            <div class="footer_logo mb-auto"><a [routerLink]="['trangchu']">MuaTC-Exam</a></div>
+                            <div class="footer_title">Subscribe</div>
+                            <form action="#" id="newsletter_form" class="newsletter_form">
+                                <input type="email" class="newsletter_input" placeholder="Email" required="required">
+                                <button class="newsletter_button"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <div class="col-lg-2 offset-lg-3 footer_col">
+                        <div>
+                            <div class="footer_title">About Us</div>
+                            <ul class="footer_list">
+                                <li><a [routerLink]="['/monhoc']">Danh Mục Môn Học</a></li>
+                                <li><a [routerLink]="['/lienhe']">Liên Hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Help & Support -->
+                    <div class="col-lg-2 footer_col">
+                        <div class="footer_title">Help & Support</div>
+                        <ul class="footer_list">
+                            <li><a [routerLink]="['/gopy']">Góp Ý</a></li>
+                            <li><a [routerLink]="['/hoidap']">Hỏi Đáp</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Privacy -->
+                    <div class="footer_social">
+                        <span class="cr_social_title">follow us</span>
+                        <ul>
+                            <li><a href="https://www.facebook.com/nghinhmatbu"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/nghinhthu/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://twitter.com/nghinhthu1"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</div>

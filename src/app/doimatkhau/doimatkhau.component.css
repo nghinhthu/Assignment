@@ -1,0 +1,12 @@
+.super_container {
+    background-image: url("/assets/images/signup-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-position: center center;
+    /* padding: 115px 0; */
+    padding-top: 50px;
+}
