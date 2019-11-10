@@ -90,23 +90,23 @@
     </div>
 
     <!-- Sign up -->
-    <div class="main">
+    <div class="main" *ngIf="!show" style="text-align: center;">
 
         <section class="signup">
             <!-- <img src="assets/images/signup-bg.jpg" alt=""> -->
             <div class="container-dangnhap">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
+                    <form id="signup-form" class="signup-form">
                         <h2 class="form-title">ĐĂNG NHẬP</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="User Name" />
+                            <input type="text" class="form-input" name="name" id="name" [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}" placeholder="User Name" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="password" id="password" placeholder="Password" />
+                            <input type="password" class="form-input" name="password" id="name" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" id="password" placeholder="Password" />
                             <span toggle="password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Đăng nhập" />
+                            <input type="submit" name="submit" id="submit" class="form-submit" (click)="submit()" value="Đăng nhập" />
                         </div>
                     </form>
                     <hr>
@@ -120,5 +120,4 @@
         </section>
 
     </div>
-
 </div>

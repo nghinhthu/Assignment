@@ -2,6 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { NgxPaginationModule} from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
@@ -33,7 +40,12 @@ import { ThiComponent } from './thi/thi.component';
   ],
   imports: [
     BrowserModule, 
-    // NgModule,
+    HttpClientModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'assignment'),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
     NgxPaginationModule,
     RouterModule.forRoot([ 
       // { path: '', 	component: AppComponent }, 
@@ -45,7 +57,7 @@ import { ThiComponent } from './thi/thi.component';
       { path: 'suataikhoan', component:SuataikhoanComponent},
       { path: 'hoidap', component:HoidapComponent},
       { path: 'monhoc', component:MonhocComponent},
-      { path: 'thi', component:ThiComponent},
+      { path: 'thi/:Id', component:ThiComponent},
       { path: 'gopy', component:GopyComponent},
       { path: 'lienhe', component:LienheComponent},
       { path: '**', redirectTo: 'trangchu', pathMatch: 'full' },

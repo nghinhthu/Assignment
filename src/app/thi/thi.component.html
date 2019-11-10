@@ -94,37 +94,25 @@
 
         <div class="card text-left">
             <div class="card-header ahuhu">
-                <i class="fa fa-list"></i> &nbsp; XÂY DỰNG TRANG WEB
+                <i class="fa fa-list"></i> &nbsp;{{subject?.Name}}
                 <div id="countdown"></div>
             </div>
-            <div class="card-body" *ngFor="let p of list | paginate: { itemsPerPage: itemperpage, currentPage: currentpage}">
+            <div class="card-body" *ngFor="let p of question | paginate: { itemsPerPage: itemperpage, currentPage: currentpage}">
                 <h6 class="card-title">{{p.Text}}</h6>
                 <div class="card-text">
-                    <div class="form-check">
+                    <div class="form-check" *ngFor="let t of p.Answers">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                         <label class="form-check-label" for="exampleRadios1">
-                            {{p.Answers[0].Text}}
+                            {{t.Text}}
                         </label>
                         <br>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            {{p.Answers[1].Text}}
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            {{p.Answers[2].Text}}
-                        </label>
-                        <br>
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            {{p.Answers[3].Text}}
-                        </label>
+
                     </div>
+                    <p>Đáp án đúng: {{p.AnswerId}}</p>
                 </div>
             </div>
             <div class="card-footer text-muted">
-                MARK: 0 / 80
+                MARK: 0 / {{socau}}
             </div>
         </div>
 

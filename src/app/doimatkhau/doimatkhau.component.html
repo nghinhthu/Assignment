@@ -99,21 +99,21 @@
                     <form method="POST" id="signup-form" class="signup-form">
                         <h2 class="form-title">ĐỔI MẬT KHẨU</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="User Name" />
+                            <input type="text" class="form-input" [(ngModel)]="user.uername" [ngModelOptions]="{standalone: true}" name="name" id="name" placeholder="User Name" />
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="old_password" id="old_password" placeholder="Password" />
+                            <input type="password" class="form-input" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" name="old_password" id="old_password" placeholder="Password" />
                             <span toggle="password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="password" id="password" placeholder="New Password" />
+                            <input type="password" class="form-input" [(ngModel)]="passwordNew" [ngModelOptions]="{standalone: true}" name="password" id="password" placeholder="New Password" />
                             <span toggle="password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password" />
+                            <input type="password" class="form-input" [(ngModel)]="passwordRepeat" [ngModelOptions]="{standalone: true}" name="re_password" id="re_password" placeholder="Repeat your password" />
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Tạo Tài Khoản" />
+                            <input type="submit" name="submit" id="submit" class="form-submit" (click)="submit()" value="Đổi Mật Khẩu" />
                         </div>
                     </form>
                     <hr>
@@ -122,7 +122,6 @@
                         Chưa có tài khoản ? <a [routerLink]="['/dangky']" class="loginhere-link">Tạo tài khoản</a>
                     </p>
                     <hr>
-
                 </div>
             </div>
         </section>
