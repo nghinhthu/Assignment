@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'ASM';
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('items').valueChanges();
-  }
+    // items: Observable<any[]>;
+    // constructor(db: AngularFirestore) {
+    //   this.items = db.collection('items').valueChanges();
+    // }
 }

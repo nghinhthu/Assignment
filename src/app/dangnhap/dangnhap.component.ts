@@ -6,6 +6,8 @@ import { StudentsService } from "../DAL/students.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
+import { DatabaseserviceService } from "../DAL/databaseservice.service";
+import { map } from "rxjs/operators";
 // import {ListQuestionService} from '../server/list-question.service';
 
 @Component({
@@ -14,8 +16,6 @@ import { Router } from "@angular/router";
   styleUrls: ["./dangnhap.component.css"]
 })
 export class DangnhapComponent implements OnInit {
-  student = [];
-  students: any;
   temp: boolean = false;
   user = {
     username: "",
@@ -23,25 +23,30 @@ export class DangnhapComponent implements OnInit {
     fullname: ""
   };
   items: Observable<any[]>;
+  allStudents;
 
   constructor(
-    private studentsService: StudentsService,
+    private databaseService: DatabaseserviceService,
     private route: Router,
-    private http: HttpClient,
     db: AngularFirestore
   ) {
     // this.items = db.collection('items').valueChanges();
   }
 
   ngOnInit() {
-    this.studentsService.getAllStudents().subscribe(data => {
-      this.students = data;
-    });
-    this.student = JSON.parse(localStorage.getItem("user"));
+    this.databaseService.studentsRef.snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+        )
+      )
+      .subscribe(a => (this.allStudents = a));
+    setTimeout(() => {
+      console.log(this.allStudents);
+    }, 2000);
   }
   submit() {
     let t: boolean = false;
-    this.student.forEach(p => {
+    this.allStudents.forEach(p => {
       if (this.user.username == p.username) {
         if (this.user.password == p.password) {
           this.user.username = p.username;
@@ -50,7 +55,6 @@ export class DangnhapComponent implements OnInit {
 
           window.alert(this.user.fullname + " đã đăng nhập thành công");
           this.route.navigateByUrl("/monhoc");
-          localStorage.setItem("login", JSON.stringify(this.user));
           t = true;
         }
         t == true;

@@ -102,7 +102,7 @@
             <div class="row courses_row">
 
                 <!-- Course -->
-                <div class="col-lg-4 course_col" *ngFor="let p of listSubjects | paginate: { itemsPerPage: itemperpage, currentPage: currentpage}" style="padding-top: 20px;">
+                <div class="col-lg-4 course_col" *ngFor="let p of allSubjects | paginate: { itemsPerPage: itemperpage, currentPage: currentpage}" style="padding-top: 20px;">
                     <div class="course">
                         <div class="course_image" style="padding-left: 100px; background-color: cadetblue"><img src="assets/images/logos/{{p.Logo}}" alt=""></div>
                         <div class="course_body">

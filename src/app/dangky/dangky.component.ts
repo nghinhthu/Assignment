@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import { StudentsService } from "../DAL/students.service";
 import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
-import { Router } from "@angular/router";
-import { element } from "protractor";
-import { checkServerIdentity } from "tls";
 import { ActivatedRoute } from "@angular/router";
+import { AngularFireDatabase, AngularFireList  } from '@angular/fire/database';
+import { DatabaseserviceService } from "../DAL/databaseservice.service";
+import { map } from "rxjs/operators";
+
 
 @Component({
   selector: "app-dangky",
@@ -27,19 +27,26 @@ export class DangkyComponent implements OnInit {
     birthday: "",
   };
   temp: Boolean = false;
+  studentsRef: AngularFireList<any>;
   items: Observable<any[]>;
+  allStudents;
   constructor(
     private studentsService: StudentsService,
     private route: ActivatedRoute,
-    private http: HttpClient,
-    db: AngularFirestore
+    db: AngularFireDatabase,
+    private databaseService: DatabaseserviceService,
   ) {}
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.dangki = +params.get("Dangky");
-    });
-    this.student = JSON.parse(localStorage.getItem("user"));
+    this.databaseService.studentsRef.snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+        )
+      )
+      .subscribe(a => (this.allStudents = a));
+    setTimeout(() => {
+      console.log(this.allStudents);
+    }, 2000);
    }
   checkName() {
     if (this.user.fullname == "") {
@@ -54,8 +61,8 @@ export class DangkyComponent implements OnInit {
       if (this.user.username == "") {
         window.alert("Vui lòng điền tên đăng nhập!");
       }
-      for (let i = 0; i <= this.student.length; i++) {
-        if (this.user.username == this.student[i].username) {
+      for (let i = 0; i <= this.allStudents.length; i++) {
+        if (this.user.username == this.allStudents[i].username) {
           window.alert("Tên đăng nhập đã tồn tại!");
         } else {
           this.temp = true;
@@ -73,9 +80,10 @@ export class DangkyComponent implements OnInit {
         window.alert(
           "Tài khoản " + this.user.username + " đã được đăng ký thành công!"
         );
+        this.studentsService.add(this.user);
       }
-      this.student.push(this.user);
-      localStorage.setItem("user", JSON.stringify(this.student));
+      
+      // localStorage.setItem("user", JSON.stringify(this.student));
     }
   }
   submit() {

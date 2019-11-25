@@ -9,20 +9,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./thi.component.css']
 })
 export class ThiComponent implements OnInit {
-  
-    listSubjects;
-    subject;
-    quizzs: any;
-    question;
-    Id;
-    answer;
 
+    element = []
+    show=false;
+    
     itemperpage = 1;
     currentpage = 1;
     page:number;
     
-    // socau=this.list.length;
-
     nextPage() {
         if (this.currentpage * this.itemperpage < this.listSubjects.length) {
           this.currentpage++;
@@ -35,8 +29,18 @@ export class ThiComponent implements OnInit {
           this.currentpage--;
         }
       }
+  listSubjects;
+  subject;
+  quizzs: any;
+  question;
+  Id;
+  answer;
+  
+  dapan = [];
+  point = 0;
+  answerId: number = -1;
 
-    constructor(private subjectsService: SubjectsService, private route: ActivatedRoute, private http:HttpClient) { }
+  constructor(private subjectsService: SubjectsService, private route: ActivatedRoute, private http:HttpClient) { }
 
   ngOnInit() {
     this.subjectsService.getAllSubjects().subscribe(data => {
@@ -50,8 +54,31 @@ export class ThiComponent implements OnInit {
         })
         this.http.get(`../assets/db/Quizs/${this.Id}.js`).subscribe(data=>{
           this.question=data;
+          console.log(this.question)
       })
     })
+  }
+  socau(){
+    let socau=this.question.length;
+    return socau;
+  }
+  tinhDiem()
+  {
+    
+    for(let i = 0; i < this.question.length; i++)
+    {
+      if(this.dapan[i]==this.question[i].AnswerId)
+      {
+        this.point += this.question[i].Mark
+      }
+      return this.point
+    }
+    
+  }
+  submit()
+  {
+    this.tinhDiem()
+    this.show=true
   }
   // checkAnswer()
   // {

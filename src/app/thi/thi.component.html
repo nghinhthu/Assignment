@@ -95,25 +95,29 @@
         <div class="card text-left">
             <div class="card-header ahuhu">
                 <i class="fa fa-list"></i> &nbsp;{{subject?.Name}}
-                <div id="countdown"></div>
+                <countdown style="padding-left: 600px; font-size: 20px;" [config]="{leftTime: 3600}"></countdown>
+
             </div>
             <div class="card-body" *ngFor="let p of question | paginate: { itemsPerPage: itemperpage, currentPage: currentpage}">
-                <h6 class="card-title">{{p.Text}}</h6>
+                <h6 class="card-title" style="color: teal;">{{p.Text}}</h6>
                 <div class="card-text">
                     <div class="form-check" *ngFor="let t of p.Answers">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input class="form-check-input" [(ngModel)]="dapan[0]" [ngModelOptions]="{standalone: true}" type="radio" name="{{p.Id}}" id="{{t.Id}}" value="{{t.Id}}" checked>
+                        <label class="form-check-label" for="{{t.Id}}">
                             {{t.Text}}
                         </label>
                         <br>
 
                     </div>
-                    <p>Đáp án đúng: {{p.AnswerId}}</p>
                 </div>
             </div>
             <div class="card-footer text-muted">
-                MARK: 0 / {{socau}}
+                <p style="color: teal;">SỐ CÂU HỎI: {{socau()}}</p>
+                <button *ngIf="show==false" (click)="submit()">Submit</button>
             </div>
+        </div>
+        <div class="point" *ngIf="show==true">
+            <h3>ĐIỂM: {{point}}</h3>
         </div>
 
         <nav aria-label="Page navigation example">
